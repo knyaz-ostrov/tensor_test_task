@@ -71,16 +71,17 @@ def test_scenario_two(browser: webdriver.Chrome) -> None:
     page.click_on_button(CONTACT_BUTTON)
 
     assert page.find_element(REGION).text == 'Тюменская обл.', 'Регион определился неправильно'
-    partners_region_default = page.find_element(PARTNER_BLOCK_REGION).text
 
     page.click_on_button(REGION)
     page.click_on_button(KAMCHATKA_REGION)
 
     assert page.find_element_by_text(REGION, "Камчатский край"), 'Регион был выбран неправильно'
 
-    assert page.find_element_by_text(PARTNER_BLOCK_REGION, "Петропавловск-Камчатский"), 'Список партнеров не обновился'
+    assert page.find_element_by_text(PARTNER_BLOCK_REGION, "Петропавловск-Камчатский"),\
+        'Список партнеров не обновился'
 
-    assert '41-kamchatskij-kraj' in browser.current_url, 'URL не содержит информации о выбранном регионе'
+    assert '41-kamchatskij-kraj' in browser.current_url,\
+        'URL не содержит информации о выбранном регионе'
     assert 'Камчатский край' in browser.title, 'Title не содержит информации о выбранном регионе'
 
 
