@@ -1,3 +1,6 @@
+"""
+Модуль содержит в себе фикстуры для тестирования сценариев.
+"""
 import os
 import pytest
 from selenium import webdriver
