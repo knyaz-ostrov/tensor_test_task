@@ -11,7 +11,8 @@ ABOUT_BUTTON = (By.CSS_SELECTOR, 'a.tensor_ru-link.tensor_ru-Index__link[href="/
 PHOTO_BLOG = (By.XPATH, '//*[@id="container"]/div[1]/div/div[4]/div[2]/div[*]/a/div[1]/img')
 REGION = (By.XPATH, '//*[@id="container"]/div[1]/div/div[3]/div[2]/div[1]/div/div[2]/span/span')
 PARTNER_BLOCK_REGION = (By.XPATH, '//*[@id="city-id-2"]')
-KAMCHATKA_REGION = (By.XPATH, '//*[@id="popup"]/div[2]/div/div/div/div/div[2]/div/ul/li[43]/span/span')
+KAMCHATKA_REGION = (By.XPATH,
+                    '//*[@id="popup"]/div[2]/div/div/div/div/div[2]/div/ul/li[43]/span/span')
 DOWNLOAD_LOCAL_VERSIONS_LINK = (By.LINK_TEXT, 'Скачать локальные версии')
 SBIS_PLUGIN = (By.XPATH, '//div[@data-id="plugin"]')
 DOWNLOAD_PLUGIN = (By.PARTIAL_LINK_TEXT, 'Скачать (Exe')
