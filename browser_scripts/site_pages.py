@@ -1,9 +1,9 @@
 """
-Модуль для работы с веб-страницами
+Модуль для работы с веб-страницами.
 """
 from typing import Tuple, List
 
-from base_app import BasePage
+from browser_scripts.base_app import BasePage
 
 
 class SiteHelper(BasePage):
@@ -20,23 +20,6 @@ class SiteHelper(BasePage):
         :return:
         """
         button = self.find_element(locator)
-        try:
-            button.click()
-        except:
-            self.driver.execute_script("arguments[0].click();", button)
-
-    def scroll_and_click_on_button(self, locator: Tuple[str, str]) -> None:
-        """
-        Прокручивает страницу к элементу,
-        затем выполняет клик по указанной кнопке.
-        Если клик не удается сделать обычным способом,
-        метод пытается сделать это с помощью JavaScript
-
-        :param locator: Кортеж (Локатор, Искомое значение)
-        :return:
-        """
-        button = self.find_element(locator)
-        self.scroll_to_element(button)
         try:
             button.click()
         except:

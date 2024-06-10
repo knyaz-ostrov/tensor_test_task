@@ -1,11 +1,13 @@
 """
 Модуль содержит в себе фикстуры для тестирования сценариев.
 """
-import pytest
+import shutil
 
+import pytest
 from selenium import webdriver
 
-from chrome_options import ChromeOptions
+from constants import DOWNLOAD_PATH
+from webdriver_options import ChromeOptions
 
 
 @pytest.fixture(scope='session')
@@ -22,3 +24,18 @@ def browser():
     yield driver
 
     driver.quit()
+
+
+@pytest.fixture(scope="session", autouse=True)
+def cleanup_downloads(request):
+    """
+    Фикстура для удаления папки downloads перед и после
+    выполнения тестовых сценариев.
+    """
+    def fin():
+        """
+        Удаление папки со скачанными файлами.
+        """
+        shutil.rmtree(DOWNLOAD_PATH)
+
+    request.addfinalizer(fin)
